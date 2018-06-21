@@ -8,17 +8,19 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Timer manager</title>
+    <title>Timer Management</title>
+
+    <link rel="shortcut icon" href="{{ url('/') }}/favicon.ico">
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css', 'build') }}" rel="stylesheet">
 </head>
-<body id="app">
+<body>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                Timer manager
+                Timer Management
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -71,7 +73,7 @@
 <footer>
     <div class="container">
         <div class="border-top pt-3">
-            <p>&copy; {{ date('Y') }} - Times.manager</p>
+            <p>&copy; {{ date('Y') }} - Timer Management</p>
         </div>
     </div>
 </footer>

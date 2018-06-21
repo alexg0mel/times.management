@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    это тест
+    @include ('admin._nav', ['page' => ''])
 @endsection
