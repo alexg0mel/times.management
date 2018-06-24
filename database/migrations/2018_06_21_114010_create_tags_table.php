@@ -19,8 +19,10 @@ class CreateTagsTable extends Migration
         });
 
         Schema::create('task_in_tag', function (Blueprint $table) {
-            $table->integer('task_id')->references('id')->on('tasks')->onDelete('CASCADE');
-            $table->integer('tag_id')->references('id')->on('tags')->onDelete('CASCADE');
+            $table->integer('task_id')->unsigned();
+            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('CASCADE');
+            $table->integer('tag_id')->unsigned();
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('CASCADE');
             $table->primary(['task_id', 'tag_id']);
             $table->string('name_tag');
         });

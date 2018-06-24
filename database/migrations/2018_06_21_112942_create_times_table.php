@@ -15,17 +15,18 @@ class CreateTimesTable extends Migration
     {
         Schema::create('times', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('group_id')->references('id')->on('groups')->onDelete('RESTRICT');
-            $table->integer('task_id')->references('id')->on('tasks')->onDelete('RESTRICT');
-            $table->integer('user_id')->references('id')->on('users')->onDelete('RESTRICT');
-            $table->dateTime('fact_time');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->integer('group_id')->unsigned();
+            $table->foreign('group_id')->references('id')->on('task_groups')->onDelete('RESTRICT');
+            $table->integer('task_id')->unsigned();
+            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('RESTRICT');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('RESTRICT');
+            $table->dateTime('fact_time')->nullable();
+            $table->dateTime('start_time')->nullable();
+            $table->dateTime('end_time')->nullable();
             $table->json('step_opis');
 
             $table->index(['group_id', 'task_id']);
-            $table->index(['user_id']);
-
         });
     }
 

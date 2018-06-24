@@ -36,8 +36,9 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
+        $tasks = $project->tasks;
 
-        return view('admin.projects.show', ['project' => $project]);
+        return view('admin.projects.show', ['project' => $project, 'tasks' => $tasks,]);
     }
 
     public function edit(Project $project)

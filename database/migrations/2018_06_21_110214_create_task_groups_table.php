@@ -16,7 +16,8 @@ class CreateTaskGroupsTable extends Migration
         Schema::create('task_groups', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name_group');
-            $table->integer('timeline_id')->references('id')->on('timelines')->onDelete('CASCADE');
+            $table->integer('timeline_id')->unsigned();
+            $table->foreign('timeline_id')->references('id')->on('timelines')->onDelete('CASCADE');
             $table->timestamps();
         });
     }

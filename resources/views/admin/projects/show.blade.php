@@ -22,5 +22,28 @@
         </tr>
         </tbody>
     </table>
+    <p><a href="{{ route('admin.projects.tasks.create', $project) }}" class="btn btn-success">Добавить задачу</a></p>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Задачи</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        @forelse ($tasks as $task)
+            <tr>
+                <td>
+                    <a href="{{ route('admin.projects.tasks.show', [$project, $task]) }}">{{ $task->name_task }}</a>
+                </td>
+            </tr>
+        @empty
+            <tr><td colspan="4">Отсутствуют...</td></tr>
+        @endforelse
+
+        </tbody>
+    </table>
+
 
 @endsection

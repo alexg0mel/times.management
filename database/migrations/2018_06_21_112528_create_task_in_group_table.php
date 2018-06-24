@@ -14,8 +14,10 @@ class CreateTaskInGroupTable extends Migration
     public function up()
     {
         Schema::create('task_in_group', function (Blueprint $table) {
-            $table->integer('group_id')->references('id')->on('groups')->onDelete('RESTRICT');
-            $table->integer('task_id')->references('id')->on('tasks')->onDelete('RESTRICT');
+            $table->integer('group_id')->unsigned();
+            $table->foreign('group_id')->references('id')->on('task_groups')->onDelete('RESTRICT');
+            $table->integer('task_id')->unsigned();
+            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('RESTRICT');
             $table->primary(['group_id', 'task_id']);
             $table->dateTime('plan_time');
         });
