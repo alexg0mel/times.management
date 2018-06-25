@@ -10,6 +10,12 @@
             @method('DELETE')
             <button class="btn btn-danger">Удалить</button>
         </form>
+        <form method="POST" action="{{ route('admin.project.active', $project) }}" class="mr-1">
+            @csrf
+            @method('PUT')
+            @if($project->active)<button class="btn btn-success">Отключить</button>@else
+                                <button class="btn btn-dark">Включить</button>@endif
+        </form>
     </div>
 
     <table class="table table-bordered table-striped">
@@ -19,6 +25,9 @@
         </tr>
         <tr>
             <th>Name</th><td>{{ $project->name_project }}</td>
+        </tr>
+        <tr>
+            <th>Active</th><td>{{ $project->activity() }}</td>
         </tr>
         </tbody>
     </table>

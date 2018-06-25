@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property string $name_project
+ * @property boolean $active
  *
  * @property Task[] $tasks
  */
@@ -19,9 +20,24 @@ class Project extends Model
 
     public $timestamps = false;
 
+    protected $casts = [
+        'active' => 'boolean'
+    ];
+
     public function tasks()
     {
         return $this->hasMany(Task::class, 'project_id', 'id');
+    }
+
+    public function toogleActive()
+    {
+        $this->active = !$this->active;
+        $this->save();
+    }
+
+    public function activity() : string
+    {
+        return $this->active ? 'да':'нет';
     }
 
 }

@@ -65,4 +65,10 @@ class ProjectController extends Controller
 
         return redirect()->route('admin.projects.index');
     }
+
+    public function active(Project $project)
+    {
+        $project->toogleActive();
+        return redirect()->route('admin.projects.show', $project);
+    }
 }

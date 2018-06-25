@@ -27,6 +27,7 @@ Route::group([
             ],function (){
                             Route::get('/', 'HomeController@index')->name('home');
                             Route::resource('projects','ProjectController');
+                            Route::put('projects/{project}/active','ProjectController@active')->name('project.active');
                             Route::group(['prefix' => 'projects/{project}', 'as' => 'projects.'], function () {
                                 Route::resource('tasks', 'TaskController')->except('index');
                             });
