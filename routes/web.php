@@ -36,4 +36,14 @@ Route::group([
                         });
 
 
+Route::group([
+    'prefix' => 'cabinet',
+    'as' => 'cabinet.',
+    'namespace' => 'Cabinet',
+    'middleware' => ['auth',],
+],function (){
+    Route::get('/', 'HomeController@index')->name('cabinet');
+    Route::get('/activetask','ActivetaskController@index')->name('task.active');
 
+
+});
