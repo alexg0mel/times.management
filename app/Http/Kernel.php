@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\ApiToken;
 use App\Http\Middleware\Developer;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 

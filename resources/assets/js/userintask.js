@@ -1,10 +1,11 @@
 window.Vue = require('vue');
 
 
-import exampleComponent from './components/ExampleComponent.vue'
+import activeTaskComponent from './appComponents/ActiveTaskComponent.vue'
+// Вариант 1
 
 const app = new Vue({
     el: '#app',
-    template: '<exampleComponent/>',
-    components: { exampleComponent }
+    template: '<activeTaskComponent/>',
+    components: {activeTaskComponent}
 });

@@ -20,20 +20,20 @@ Route::get('/', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::group([
-                'prefix' => 'admin',
-                'as' => 'admin.',
-                'namespace' => 'Admin',
-                'middleware' => ['auth',],
-            ],function (){
-                            Route::get('/', 'HomeController@index')->name('home');
-                            Route::resource('projects','ProjectController');
-                            Route::put('projects/{project}/active','ProjectController@active')->name('project.active');
-                            Route::group(['prefix' => 'projects/{project}', 'as' => 'projects.'], function () {
-                                Route::resource('tasks', 'TaskController')->except('index');
-                            });
+    'prefix' => 'admin',
+    'as' => 'admin.',
+    'namespace' => 'Admin',
+    'middleware' => ['auth',],
+], function () {
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('projects', 'ProjectController');
+    Route::put('projects/{project}/active', 'ProjectController@active')->name('project.active');
+    Route::group(['prefix' => 'projects/{project}', 'as' => 'projects.'], function () {
+        Route::resource('tasks', 'TaskController')->except('index');
+    });
 
 
-                        });
+});
 
 
 Route::group([
@@ -41,9 +41,10 @@ Route::group([
     'as' => 'cabinet.',
     'namespace' => 'Cabinet',
     'middleware' => ['auth',],
-],function (){
+], function () {
     Route::get('/', 'HomeController@index')->name('cabinet');
-    Route::get('/activetask','ActivetaskController@index')->name('task.active');
+    Route::get('/activetask', 'ActivetaskController@index')->name('task.active');
+    Route::get('/activetask2', 'ActivetaskController@index2')->name('task.active2');
 
 
 });
