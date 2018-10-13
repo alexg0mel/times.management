@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Task whereProjectId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Task whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entity\Tag[] $tags
  */
 
 class Task extends Model
@@ -37,6 +38,11 @@ class Task extends Model
     public function users()
     {
         return $this->belongsToMany(User::class,'user_in_task', 'task_id', 'user_id');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class,'task_in_tag', 'task_id', 'taag_id');
     }
 
 }
