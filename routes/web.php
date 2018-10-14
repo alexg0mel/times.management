@@ -31,6 +31,7 @@ Route::group([
     Route::group(['prefix' => 'projects/{project}', 'as' => 'projects.'], function () {
         Route::resource('tasks', 'TaskController')->except('index');
     });
+    Route::resource('timelines','TimelinesController');
 
 
 });

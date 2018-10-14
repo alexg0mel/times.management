@@ -15,8 +15,4 @@ class Active implements StatusInterface
        return 'Active';
    }
 
-   private function __construct()
-   {
-       //
-   }
 }
