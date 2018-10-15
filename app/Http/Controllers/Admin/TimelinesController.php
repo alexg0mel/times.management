@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Entity\Timeline;
+use App\UseCases\Timelines\Statuses\TimelinesStatuses;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -23,13 +24,13 @@ class TimelinesController extends Controller
 
     public function store(Request $request)
     {
+
         $this->validate($request, [
-            'name_project' => 'required|string|max:255|unique:projects',
+            'start_time' => 'required|date',
+            'end_time' => 'required|date|after:start_time',
         ]);
 
-        $timeline = Timeline::create([
-            'name_project' => $request['name_project'],
-        ]);
+        $timeline = Timeline::new($request['start_time'], $request['end_time']);
 
         return redirect()->route('admin.timelines.show', $timeline);
     }
@@ -37,22 +38,26 @@ class TimelinesController extends Controller
     public function show(Timeline $timeline)
     {
 
-        return view('admin.timelines.show', ['timelines' => $timeline,]);
+        $timelineStatuses = new TimelinesStatuses($timeline);
+        return view('admin.timelines.show', ['timeline' => $timeline,
+                                                    'statuses' =>$timelineStatuses->getNextStatuses()]);
     }
 
     public function edit(Timeline $timeline)
     {
-        return view('admin.timelines.edit', ['timelina' => $timeline]);
+        return view('admin.timelines.edit', ['timeline' => $timeline]);
     }
 
     public function update(Request $request, Timeline $timeline)
     {
         $this->validate($request, [
-            'name_project' => 'required|string|max:255|unique:projects',
+            'start_time' => 'required|date',
+            'end_time' => 'required|date|after:start_time',
         ]);
 
         $timeline->update([
-            'name_project' => $request['name_project'],
+            'start_time' => $request['start_time'],
+            'end_time' => $request['end_time'],
         ]);
 
         return redirect()->route('admin.timelines.show', $timeline);
@@ -63,5 +68,12 @@ class TimelinesController extends Controller
         $timeline->delete();
 
         return redirect()->route('admin.timelines.index');
+    }
+
+    public function status(Timeline $timeline, string $status)
+    {
+        $timelineStatuses = new TimelinesStatuses($timeline);
+        $timelineStatuses->getFullnameStatus($status)::setStatus($timelineStatuses);
+        return redirect()->route('admin.timelines.show', $timeline);
     }
 }

@@ -14,4 +14,14 @@ class Drafting implements StatusInterface
    {
        return 'Drafting';
    }
+
+   public static function getNextStatuses(): array
+   {
+       return [(TimelinesStatuses::STATUS_WAIT)::getName(),(TimelinesStatuses::STATUS_PLANING)::getName(),];
+   }
+
+    public static function setStatus(TimelinesStatuses $timelineStatuses): void
+    {
+        $timelineStatuses->setDrafting();
+    }
 }

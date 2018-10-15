@@ -14,4 +14,14 @@ class Wait implements StatusInterface
    {
        return 'Wait';
    }
+
+   public static function getNextStatuses(): array
+   {
+       return [(TimelinesStatuses::STATUS_PLANING)::getName(),];
+   }
+
+    public static function setStatus(TimelinesStatuses $timelineStatuses): void
+    {
+        $timelineStatuses->setWait();
+    }
 }

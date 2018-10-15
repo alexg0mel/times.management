@@ -15,4 +15,13 @@ class Active implements StatusInterface
        return 'Active';
    }
 
+   public static function getNextStatuses():array
+   {
+       return [(TimelinesStatuses::STATUS_COMPLETE)::getName(),];
+   }
+
+    public static function setStatus(TimelinesStatuses $timelineStatuses): void
+    {
+        $timelineStatuses->setActive();
+    }
 }

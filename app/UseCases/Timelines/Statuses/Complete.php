@@ -14,4 +14,14 @@ class Complete implements StatusInterface
    {
        return 'Complete';
    }
+
+   public static function getNextStatuses(): array
+   {
+       return [];
+   }
+
+    public static function setStatus(TimelinesStatuses $timelineStatuses): void
+    {
+        $timelineStatuses->setComplete();
+    }
 }

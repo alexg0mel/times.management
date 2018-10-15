@@ -32,6 +32,7 @@ Route::group([
         Route::resource('tasks', 'TaskController')->except('index');
     });
     Route::resource('timelines','TimelinesController');
+    Route::put('timelines/{timeline}/status/{status}', 'TimelinesController@status')->name('timelines.status');
 
 
 });

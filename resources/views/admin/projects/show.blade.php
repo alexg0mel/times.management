@@ -5,7 +5,7 @@
 
     <div class="d-flex flex-row mb-3">
         <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary mr-1">Редактировать</a>
-        <form method="POST" action="{{ route('admin.projects.update', $project) }}" class="mr-1">
+        <form method="POST" action="{{ route('admin.projects.destroy', $project) }}" class="mr-1">
             @csrf
             @method('DELETE')
             <button class="btn btn-danger">Удалить</button>

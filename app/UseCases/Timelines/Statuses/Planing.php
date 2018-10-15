@@ -14,4 +14,14 @@ class Planing implements StatusInterface
    {
        return 'Planing';
    }
+
+   public static function getNextStatuses(): array
+   {
+       return [(TimelinesStatuses::STATUS_ACTIVE)::getName(),];
+   }
+
+    public static function setStatus(TimelinesStatuses $timelineStatuses): void
+    {
+        $timelineStatuses->setPlaning();
+    }
 }

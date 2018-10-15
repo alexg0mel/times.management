@@ -25,3 +25,11 @@ body {
 .app-content {
   flex: 1;
 }
+
+table.pointer tr {
+  cursor: pointer;
+}
+
+table.pointer td:hover, table.pointer td:focus {
+  color: #337ab7;
+}
