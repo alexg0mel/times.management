@@ -33,6 +33,9 @@ Route::group([
     });
     Route::resource('timelines','TimelinesController');
     Route::put('timelines/{timeline}/status/{status}', 'TimelinesController@status')->name('timelines.status');
+    Route::group(['prefix' => 'timelines/{timeline}', 'as' => 'timelines.'], function () {
+        Route::resource('groups', 'GroupController')->except('index');
+    });
 
 
 });

@@ -37,10 +37,12 @@ class TimelinesController extends Controller
 
     public function show(Timeline $timeline)
     {
-
+        $groups = $timeline->groups;
         $timelineStatuses = new TimelinesStatuses($timeline);
         return view('admin.timelines.show', ['timeline' => $timeline,
-                                                    'statuses' =>$timelineStatuses->getNextStatuses()]);
+                                                    'statuses' => $timelineStatuses->getNextStatuses(),
+                                                    'groups' => $groups,
+                                                ]);
     }
 
     public function edit(Timeline $timeline)

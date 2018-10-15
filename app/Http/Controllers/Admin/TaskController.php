@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
 
-    public function create(Request $request, Project $project)
+    public function create(Project $project)
     {
 
         return view('admin.projects.tasks.create', ['project' => $project]);

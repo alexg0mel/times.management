@@ -13,6 +13,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Tag whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Tag whereNameTag($value)
  * @mixin \Eloquent
+ * @property int $frequency
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Tag whereFrequency($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Tag whereSlug($value)
  */
 class Tag extends Model
 {

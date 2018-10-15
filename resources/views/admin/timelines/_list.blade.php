@@ -12,8 +12,8 @@
 
     @foreach ($timelines as $timeline)
         <tr onclick="window.location.href='{{ route("admin.timelines.show", $timeline) }}'; return false">
-            <td>{{ $timeline->created_at->format('d-m-Y h:m:s') }}</td>
-            <td>{{ $timeline->updated_at->format('d-m-Y h:m:s') }}</td>
+            <td>{{ $timeline->created_at->format('d-m-Y H:m:s') }}</td>
+            <td>{{ $timeline->updated_at->format('d-m-Y H:m:s') }}</td>
             <td>{{ $timeline->start_time->format('d-m-Y') }}</td>
             <td>{{ $timeline->end_time->format('d-m-Y') }}</td>
             <td>{{ $timeline->status }}</td>

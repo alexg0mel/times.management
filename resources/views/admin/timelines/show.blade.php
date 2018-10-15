@@ -38,6 +38,28 @@
         </tbody>
     </table>
 
+    <p><a href="{{ route('admin.timelines.groups.create', $timeline) }}" class="btn btn-success">Добавить группу задач</a></p>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Группы задач</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        @forelse ($groups as $group)
+            <tr>
+                <td>
+                    <a href="{{ route('admin.timelines.groups.show', [$timeline, $group]) }}">{{ $group->name_group }}</a>
+                </td>
+            </tr>
+        @empty
+            <tr><td colspan="4">Отсутствуют...</td></tr>
+        @endforelse
+
+        </tbody>
+    </table>
 
 
 
