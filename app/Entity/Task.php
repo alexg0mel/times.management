@@ -23,6 +23,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Task whereUpdatedAt($value)
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entity\Tag[] $tags
+ * @property int $used
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Task whereUsed($value)
  */
 
 class Task extends Model

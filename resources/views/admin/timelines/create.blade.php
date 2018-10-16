@@ -17,7 +17,7 @@
         <div class="form-group">
             <label for="end_time" class="col-form-label">Конец периода</label>
             <input type="date" id="end_time" class="form-control{{ $errors->has('end_time') ? ' is-invalid' : '' }}" name="end_time" value="{{ old('end_time') }}" required>
-            @if ($errors->has('start_time'))
+            @if ($errors->has('end_time'))
                 <span class="invalid-feedback"><strong>{{ $errors->first('end_time') }}</strong></span>
             @endif
         </div>
