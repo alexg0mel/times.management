@@ -49,7 +49,6 @@ Route::group([
 ], function () {
     Route::get('/', 'HomeController@index')->name('cabinet');
     Route::get('/activetask', 'ActivetaskController@index')->name('task.active');
-    Route::get('/activetask2', 'ActivetaskController@index2')->name('task.active2');
 
 
 });

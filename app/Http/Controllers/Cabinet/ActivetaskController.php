@@ -13,11 +13,4 @@ class ActivetaskController extends Controller
         return view('cabinet.userintask', ['token' => json_encode(['token' => $token])]);
     }
 
-    public function index2()
-    {
-        $token = (new ApiTokenServices(\Auth::user()))->getToken();
-        return view('cabinet.userintask2', ['token' => json_encode(['token' => $token])]);
-    }
-
-
 }

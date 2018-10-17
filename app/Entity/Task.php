@@ -44,7 +44,12 @@ class Task extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class,'task_in_tag', 'task_id', 'taag_id');
+        return $this->belongsToMany(Tag::class,'task_in_tag', 'task_id', 'tag_id');
+    }
+
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class,'task_in_group', 'task_id', 'group_id');
     }
 
 }
