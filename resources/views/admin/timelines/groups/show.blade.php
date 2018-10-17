@@ -24,5 +24,18 @@
         </tbody>
     </table>
 
+    <h3>Задачи для группы:</h3>
+    <div id="app">
+        <task-in-group-component token="{{ $token }}" group="{{  $group->id }}"></task-in-group-component>
+    </div>
 
 @endsection
+
+
+@section('script')
+    <script src="{{ mix('js/taskingroup.js', 'build') }}"></script>
+@endsection
+
+
+{{-- ToDo Как вариант в <ask-in-group-component> при подсказке Выберите проект можно показывать сгруппированные
+     по проектам задачи, что прилинкованы к группам--}}

@@ -15,7 +15,7 @@ mix.setPublicPath('public/build')
     .setResourceRoot('build')
     .js('resources/assets/js/app.js', 'js')
     .js('resources/assets/js/userintask.js', 'js')
-    .js('resources/assets/js/userintask2.js', 'js')
+    .js('resources/assets/js/taskingroup.js', 'js')
     .sass('resources/assets/sass/app.scss', 'css')
     .version();
 

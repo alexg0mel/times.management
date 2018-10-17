@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Entity\Group;
 use App\Entity\Timeline;
+use App\UseCases\Users\ApiTokenServices;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -34,7 +35,8 @@ class GroupController extends Controller
 
     public function show(Timeline $timeline, Group $group)
     {
-        return view('admin.timelines.groups.show', ['timeline' => $timeline, 'group' => $group]);
+        $token = (new ApiTokenServices(\Auth::user()))->getToken();
+        return view('admin.timelines.groups.show', ['timeline' => $timeline, 'group' => $group, 'token' => $token]);
     }
 
 

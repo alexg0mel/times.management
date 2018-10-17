@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -41,6 +42,11 @@ class Project extends Model
     public function activity() : string
     {
         return $this->active ? 'да':'нет';
+    }
+
+    public function scopeActive(Builder $builder)
+    {
+        return $builder->where(['active'=>true]);
     }
 
 }

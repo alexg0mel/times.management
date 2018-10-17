@@ -23,8 +23,7 @@
         data: function() {
           return {
               api_token:null,
-              projects: [],
-              tasks:[]
+              projects: []
           }
         },
         mounted() {
