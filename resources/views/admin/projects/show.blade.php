@@ -46,6 +46,13 @@
                 <td>
                     <a href="{{ route('admin.projects.tasks.show', [$project, $task]) }}">{{ $task->name_task }}</a>
                 </td>
+                <td>
+                    @if($task->plan_time==0)
+                        (0)
+                    @else
+                        ({{\App\Helpers\DateTimeHelper::MtoText($task->plan_time)}})
+                    @endif
+                </td>
             </tr>
         @empty
             <tr><td colspan="4">Отсутствуют...</td></tr>

@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Project whereActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Project whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Project whereNameProject($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Project active()
  */
 class Project extends Model
 {

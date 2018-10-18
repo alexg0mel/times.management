@@ -25,12 +25,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entity\Tag[] $tags
  * @property int $used
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Task whereUsed($value)
+ * @property int $plan_time
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entity\Group[] $groups
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Task wherePlanTime($value)
  */
 
 class Task extends Model
 {
 
-    protected $fillable = ['name_task', 'project_id'];
+    protected $fillable = ['name_task', 'project_id', 'plan_time'];
 
     public function project()
     {
@@ -51,5 +54,6 @@ class Task extends Model
     {
         return $this->belongsToMany(Group::class,'task_in_group', 'task_id', 'group_id');
     }
+
 
 }
