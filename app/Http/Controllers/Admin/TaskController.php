@@ -44,11 +44,12 @@ class TaskController extends Controller
     public function update(Request $request, Project $project, Task $task)
     {
         $this->validate($request, [
-            'name_task' => 'required|string|max:255|unique:tasks,name_task,NULL,NULL,project_id,'.$project->id,
+            'name_task' => 'required|string|max:255|unique:tasks,name_task,'.$task->id.',id,project_id,'.$project->id,
         ]);
 
         $task->update([
             'name_task' => $request['name_task'],
+            'plan_time' => $request['plan_time'],
         ]);
 
         return redirect()->route('admin.projects.tasks.show', ['project' => $project, 'tack' => $task]);

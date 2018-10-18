@@ -21,6 +21,9 @@
         <tr>
             <th>Name</th><td>{{ $task->name_task }}</td>
         </tr>
+        <tr>
+            <th>TimeSpan</th><td>{{ \App\Helpers\DateTimeHelper::MtoText($task->plan_time) }}</td>
+        </tr>
         </tbody>
     </table>
 

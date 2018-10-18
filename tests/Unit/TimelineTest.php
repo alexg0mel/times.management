@@ -20,8 +20,8 @@ class TimelineTest extends TestCase
 
     public function testCreate()
     {
-        $start_time = Carbon::now()->addDay(2);
-        $end_time = Carbon::now()->addDay(12);
+        $start_time = Carbon::today()->addDay(2);
+        $end_time = Carbon::today()->addDay(12);
         $testline = Timeline::new($start_time, $end_time);
 
         self::assertNotEmpty($testline);
