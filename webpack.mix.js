@@ -17,6 +17,7 @@ mix.setPublicPath('public/build')
     .js('resources/assets/js/userintask.js', 'js')
     .js('resources/assets/js/taskingroup.js', 'js')
     .js('resources/assets/js/inputtime.js', 'js')
+    .js('resources/assets/js/step.js', 'js')
     .sass('resources/assets/sass/app.scss', 'css')
     .version();
 

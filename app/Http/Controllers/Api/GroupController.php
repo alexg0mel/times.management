@@ -13,9 +13,9 @@ class GroupController extends Controller
      */
     private $groupServices;
 
-    public function projects()
+    public function projects($group)
     {
-        return $this->groupServices->getProjects();
+        return $this->groupServices->getProjects($group);
 
     }
 

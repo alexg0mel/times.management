@@ -8,11 +8,20 @@ use App\Entity\Task;
 class GroupServices
 {
 
-    public function getProjects()
+    public function getProjects($group_id)
     {
-        return Project::whereHas('tasks', function ($q) {
+        $activeProjectWithFreeTask= Project::whereHas('tasks', function ($q) {
             $q->where(['used'=>false]);
-        })->active()->orderBy('id')-> get(['id','name_project']);
+        })->active();
+
+        $projectInGroup = Project::whereHas('tasks', function ($q) use ($group_id) {
+            $q->whereHas('groups', function ($q) use ($group_id) {
+                $q->where(['id'=>$group_id]);
+            });
+        });
+
+        return $activeProjectWithFreeTask->union($projectInGroup)->orderBy('id')->get();
+
     }
 
     public function getFreeTasks($project_id)
