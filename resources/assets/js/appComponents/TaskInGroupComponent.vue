@@ -62,7 +62,7 @@
         },
         methods: {
             loadProjects: function () {
-                axios.get('/api/groups/projects', this.api_token).then((response)=> {
+                axios.get('/api/groups/'+this.group+'/projects', this.api_token).then((response)=> {
                     this.projects = response.data
                 });
             },

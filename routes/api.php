@@ -29,13 +29,18 @@ Route::group(['as' => 'api.', 'namespace' => 'Api'],
             Route::post('/projects/{project}/tasks/{task}/link', 'ProjectController@link');
             Route::delete('/projects/{project}/tasks/{task}/link', 'ProjectController@unlink');
             Route::group(['prefix'=>'groups','as'=>'groups'],function (){
-                Route::get('/projects', 'GroupController@projects');
+                Route::get('/{group}/projects', 'GroupController@projects');
                 Route::get('/free-tasks/{project}', 'GroupController@freeTasks');
                 Route::get('/group-tasks/{project}/{group}', 'GroupController@groupTasks');
                 Route::post('/link-tasks/{group}/{task}', 'GroupController@linkTasks');
                 Route::delete('/link-tasks/{group}/{task}', 'GroupController@unlinkTasks');
 
             });
+            Route::get('/tasks', 'StepController@tasks');
+            Route::post('/start-time/{group}/{task}', 'StepController@startTime');
+            Route::get('/get-time','StepController@getTime');
+            Route::put('/time','StepController@putOpis');
+            Route::put('/stop-time','StepController@stopTime');
 
 
         });

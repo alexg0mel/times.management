@@ -18,11 +18,17 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Group whereTimelineId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Group whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Entity\Timeline $timeline
  */
 class Group extends Model
 {
     protected $table = 'task_groups';
 
     protected $fillable = ['name_group', 'timeline_id'];
+
+    public function timeline()
+    {
+        return $this->belongsTo(Timeline::class);
+    }
 
 }
