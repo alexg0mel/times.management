@@ -19,7 +19,7 @@ class CreateTaskInGroupTable extends Migration
             $table->integer('task_id')->unsigned();
             $table->foreign('task_id')->references('id')->on('tasks')->onDelete('RESTRICT');
             $table->primary(['group_id', 'task_id']);
-            $table->dateTime('plan_time');
+            $table->dateTime('plan_time')->nullable();
         });
     }
 

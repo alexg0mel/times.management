@@ -35,7 +35,7 @@ class MovePlantimeField extends Migration
         });
 
         Schema::table('task_in_group', function (Blueprint $table) {
-            $table->dateTime('plan_time');
+            $table->dateTime('plan_time')->nullable();
         });
 
         Schema::table('times', function (Blueprint $table) {
