@@ -25,8 +25,6 @@ class AddTimelinesIndex extends Migration
      */
     public function down()
     {
-        Schema::table('timelines', function (Blueprint $table) {
-            $table->dropIndex('status');
-        });
+        //
     }
 }
