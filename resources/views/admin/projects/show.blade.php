@@ -35,7 +35,7 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>Задачи</th>
+            <th>Задачи</th><th>Запланировано</th> <th>Факт</th>
         </tr>
         </thead>
         <tbody>
@@ -51,6 +51,13 @@
                         (0)
                     @else
                         ({{\App\Helpers\DateTimeHelper::MtoText($task->plan_time)}})
+                    @endif
+                </td>
+                <td>
+                    @if($task->fact_time==0)
+                        (0)
+                    @else
+                        ({{\App\Helpers\DateTimeHelper::MtoText($task->fact_time)}})
                     @endif
                 </td>
             </tr>

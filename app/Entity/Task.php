@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 
 /**
@@ -55,5 +56,21 @@ class Task extends Model
         return $this->belongsToMany(Group::class,'task_in_group', 'task_id', 'group_id');
     }
 
+    public function times()
+    {
+        return $this->hasMany(Time::class, 'task_id', 'id');
+    }
+
+    public function getFactTimeAttribute(): int
+    {
+        return  ($this->times()->sum('fact_time') / 60);
+    }
+
+    public function toArray()
+    {
+        $array = parent::toArray();
+        $array['fact_time'] = $this->fact_time;
+        return $array;
+    }
 
 }

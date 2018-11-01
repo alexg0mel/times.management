@@ -36,7 +36,7 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
-        $tasks = $project->tasks;
+        $tasks = $project->tasks; // ? Жадное вычисление  атрибутов? task.fact_time
 
         return view('admin.projects.show', ['project' => $project, 'tasks' => $tasks,]);
     }

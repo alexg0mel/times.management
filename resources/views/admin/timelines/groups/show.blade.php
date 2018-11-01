@@ -29,6 +29,8 @@
         <task-in-group-component token="{{ $token }}" group="{{  $group->id }}"></task-in-group-component>
     </div>
 
+    <p> Подсказка - задачи перемещать drag and drop методом</p>
+
 @endsection
 
 
