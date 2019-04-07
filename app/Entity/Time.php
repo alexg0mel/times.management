@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $task_id
  * @property int $user_id
  * @property string|null $start_time
- * @property string|null $end_time
+ * @property string|null $end
  * @property int $fact_time
  * @property string $step_opis
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Entity\Time whereEndTime($value)

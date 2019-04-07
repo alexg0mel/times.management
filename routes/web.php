@@ -48,6 +48,7 @@ Route::group([
     'middleware' => ['auth',],
 ], function () {
     Route::get('/', 'HomeController@index')->name('cabinet');
+    Route::get('/report-day', 'ReportController@report')->name('report');
     Route::get('/activetask', 'ActivetaskController@index')->name('task.active');
 
 

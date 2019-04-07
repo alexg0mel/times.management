@@ -42,6 +42,9 @@ Route::group(['as' => 'api.', 'namespace' => 'Api'],
             Route::put('/time','StepController@putOpis');
             Route::put('/stop-time','StepController@stopTime');
 
+            Route::group(['prefix'=>'reports','as'=>'reports'],function (){
+                Route::get('/user-report-day/{day}-{month}-{year}', 'UserReportController@day');
+            });
 
         });
     });

@@ -15,6 +15,7 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item list-group-item-success"><a href=" {{ route('admin.home') }}">admin zone</a> Здесь настраиваются проекты/задачи и таймлайны</li>
                             <li class="list-group-item list-group-item-success"><a href="{{ route('cabinet.task.active') }}">my tasks</a> Личная зона - привязка проектов к пользователю</li>
+                            <li class="list-group-item list-group-item-success"><a href="{{ route('cabinet.report') }}">my tasks</a> Отчет пользователя за дату</li>
                         </ul>
                     </div>
                 </div>

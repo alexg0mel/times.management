@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="{{ url('/') }}/favicon.ico">
 
     <!-- Styles -->
-    <link href="{{ mix('css/app.css', 'build') }}" rel="stylesheet">
+    <link href="{{ asset('build/css/app.css', 'build') }}" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -47,6 +47,7 @@
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('cabinet.task.active') }}">My tasks</a>
+                                <a class="dropdown-item" href="{{ route('cabinet.report') }}">Report</a>
                                 <hr>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -81,7 +82,7 @@
 </footer>
 
 <!-- Scripts -->
-<script src="{{ mix('js/app.js', 'build') }}"></script>
+<script src="{{ asset('build/js/app.js', 'build') }}"></script>
 @yield('script')
 </body>
 </html>
