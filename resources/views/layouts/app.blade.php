@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="{{ url('/') }}/favicon.ico">
 
     <!-- Styles -->
-    <link href="{{ asset('build/css/app.css', 'build') }}" rel="stylesheet">
+    <link href="{{ mix('build/css/app.css', 'build') }}" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -82,7 +82,7 @@
 </footer>
 
 <!-- Scripts -->
-<script src="{{ asset('build/js/app.js', 'build') }}"></script>
+<script src="{{ mix('build/js/app.js', 'build') }}"></script>
 @yield('script')
 </body>
 </html>
