@@ -22,10 +22,7 @@
 
 @endsetup
 
-@servers([
-    'production' => $user . '@35.198.166.193',
-    'orangepi' => $user . '@192.168.1.248',
-])
+@servers(['production' => $user . '@35.198.166.193','orangepi' => $user . '@192.168.1.248'])
 
 
 @task('clone', ['on' => $on])
@@ -89,6 +86,14 @@
     echo "#6 - Frontend have been builded"
 @endtask
 
+@task('npm', ['on' => $on])
+cd {{ $release }}
+
+npm install
+npm run prod
+echo "#6 - Frontend have been builded"
+@endtask
+
 
 @macro('deploy', ['on' => 'production'])
     clone
@@ -104,7 +109,7 @@ clone
 composer
 artisan
 chmod
+npm
 update_symlinks
-yarn
 @endmacro
 

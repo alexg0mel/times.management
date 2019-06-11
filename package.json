@@ -19,7 +19,7 @@
         "lodash": "^4.17.11",
         "popper.js": "^1.15",
         "pretty-checkbox-vue": "^1.1.9",
-        "vue": "^2.6.10",
+        "vue": "^2.5.16",
         "vue-numeric-input": "^1.0.5",
         "vue-wysiwyg": "^1.7.2",
         "vuedraggable": "^2.21.0",
