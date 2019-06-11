@@ -22,7 +22,10 @@
 
 @endsetup
 
-@servers(['production' => $user . '@35.198.166.193'])
+@servers([
+    'production' => $user . '@35.198.166.193',
+    'orangepi' => $user . '@192.168.1.248',
+])
 
 
 @task('clone', ['on' => $on])
