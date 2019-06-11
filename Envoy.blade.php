@@ -22,7 +22,10 @@
 
 @endsetup
 
-@servers(['production' => $user . '@35.198.166.193'])
+@servers([
+    'production' => $user . '@35.198.166.193',
+    'orangepi' => $user . '@192.168.1.248',
+])
 
 
 @task('clone', ['on' => $on])
@@ -95,3 +98,13 @@
     update_symlinks
     yarn
 @endmacro
+
+@macro('deploy248', ['on' => 'orangepi'])
+clone
+composer
+artisan
+chmod
+update_symlinks
+yarn
+@endmacro
+
