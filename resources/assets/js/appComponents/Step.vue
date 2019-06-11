@@ -170,4 +170,9 @@
         font-size: 100px;
     }
 
+    .form-control{
+        height: initial;
+        min-height: calc(1.5em + .75rem + 2px);
+    }
+
 </style>

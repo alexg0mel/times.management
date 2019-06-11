@@ -19,8 +19,9 @@
         "lodash": "^4.17.11",
         "popper.js": "^1.15",
         "pretty-checkbox-vue": "^1.1.9",
-        "vue": "^2.5.16",
+        "vue": "^2.6.10",
         "vue-numeric-input": "^1.0.5",
+        "vue-template-compiler": "^2.6.10",
         "vue-wysiwyg": "^1.7.2",
         "vuedraggable": "^2.21.0",
         "vuejs-datepicker": "^1.5.4"
